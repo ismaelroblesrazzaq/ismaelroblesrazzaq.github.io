@@ -73,7 +73,7 @@ body {
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 10%;
   border: 2px solid var(--border);
   display: block;
   margin: 28px auto 0 auto;
