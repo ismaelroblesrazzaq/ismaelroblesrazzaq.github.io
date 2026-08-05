@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I gave frontier LLMs a canvas and told them to draw a self-portrait</title>
+<meta name="description" content="Ten frontier models, a set of colored pencils, and 200 turns each. What they drew, how they drew it, and what it cost.">
+<link rel="canonical" href="https://ismaelroblesrazzaq.github.io/blog/llm-self-portraits/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ismaelroblesrazzaq.github.io/blog/llm-self-portraits/">
+<meta property="og:title" content="I gave frontier LLMs a canvas and told them to draw a self-portrait">
+<meta property="og:description" content="Ten frontier models, a set of colored pencils, and 200 turns each. What they drew, how they drew it, and what it cost.">
+<meta property="og:image" content="https://ismaelroblesrazzaq.github.io/blog/llm-self-portraits/media/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I gave frontier LLMs a canvas and told them to draw a self-portrait">
+<meta name="twitter:description" content="Ten frontier models, a set of colored pencils, and 200 turns each. What they drew, how they drew it, and what it cost.">
+<meta name="twitter:image" content="https://ismaelroblesrazzaq.github.io/blog/llm-self-portraits/media/og-card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+
+<p class="post-back"><a href="../">&larr; Blog</a></p>
+
+<h1>I gave frontier LLMs a canvas and told them to draw a self-portrait.</h1>
+<p class="byline">Ismael Robles-Razzaq</p>
+<p class="lede">Here are the self-portraits for Fable 5, GPT 5.6 Sol, Kimi K3, and Qwen 3.8 Max - out of order.
+Can you guess which one is which?</p>
+<div>
+    <div class="player inline" id="guessPlayer">
+      <button data-play type="button">Pause</button>
+      <input type="range" data-scrub min="0" max="125" value="0" step="1" aria-label="Turn number">
+      <span class="turn-readout" data-readout>turn 0</span>
+      <label class="speed"><input type="range" data-speed min="0.25" max="2" step="0.25" value="0.5"
+        aria-label="Playback speed"><span data-speedout>0.5&times;</span></label>
+    </div>
+    <div class="grid cols-2" id="guessGrid"></div>
+    <button class="reveal-btn" id="revealBtn" type="button">Reveal</button>
+  </div>
+<p>Interesting, right!? The Fable 5 one felt very claudey to me. Also notable is the uncanny resemblance of the 5.6 Sol drawing to Leopold Ashenbrenner at such an eventful time for him.</p>
+<p>In this blog post, I'll lay out the motivation, results, and machinery of this benchmark. I ran it on the following models:</p>
+<table class="data">
+<thead>
+<tr>
+<th>Model</th>
+<th>Release date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT 5</td>
+<td>August 2025</td>
+</tr>
+<tr>
+<td>GPT 5.4</td>
+<td>March 2026</td>
+</tr>
+<tr>
+<td>GPT 5.6 Luna</td>
+<td>July 2026</td>
+</tr>
+<tr>
+<td>GPT 5.6 Terra</td>
+<td>July 2026</td>
+</tr>
+<tr>
+<td>GPT 5.6 Sol</td>
+<td>July 2026</td>
+</tr>
+<tr>
+<td>Haiku 4.5</td>
+<td>October 2025</td>
+</tr>
+<tr>
+<td>Opus 5</td>
+<td>July 2026</td>
+</tr>
+<tr>
+<td>Fable 5</td>
+<td>June 2026</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>July 2026</td>
+</tr>
+<tr>
+<td>Qwen 3.8 Max</td>
+<td>August 2026</td>
+</tr>
+</tbody>
+</table>
+<p>All models were set to use max effort possible (although I used max instead of ultracode for anthropic models). I called OpenAI and Anthropic models through their respective APIs, Qwen 3.8 Max to Alibaba through OpenRouter, and Kimi K3 to Moonshot through Openrouter as well (I tried K3 with an unreliable provider who I won't name before switching to Moonshot. It was Baseten).</p>
+<h2>Background + motivation</h2>
+<p>After reading this <a href="https://www.tryai.dev/blog/ai-drawing-arena-colored-pencils-claude-gpt-grok">blog post</a> from tryai about benchmarking frontier LLMs on recreating the Mona Lisa and Starry Night, I became very curious about LLM's using art tools. It seems obvious that giving an LLM the ability to wield art tools like a human uses them is a more apt benchmark of creative ability than having a model blindly generate an SVG of a pelican riding a bike (or the lord of the rings for that matter). Also, this is more likely an OOD task. </p>
+<p>The purpose of this benchmark is twofold:</p>
+<ol>
+<li>to extend the frontier LLM drawing benchmark to a fully open-ended creative task</li>
+<li>to genuinely see how models choose to depict themselves (my own use of 'genuinely', not claude)</li>
+</ol>
+<p>To that end, I don't have a concrete metric for this benchmark - it's a purely subjective measure of how much I like the aesthetic of the drawing. I'll rate out of 10, where my scale the "artness" or "portraitness" of the drawings - drawings that seem like they were made by an artist will rank higher. </p>
+<p>Here are the drawing processes for each model, displayed as a video playing through each 512x512 canvas the model wrote to, and linked below each are the full transcripts for each run. I also include their descriptions of their drawing, my rating out of 10, and the total cost to run that iteration.</p>
+<div>
+    <div class="player" id="player">
+      <button data-play type="button">Pause</button>
+      <input type="range" data-scrub min="0" max="200" value="0" step="1" aria-label="Turn number">
+      <span class="turn-readout" data-readout>turn 0 / 200</span>
+      <label class="speed"><input type="range" data-speed min="0.25" max="2" step="0.25" value="0.5"
+        aria-label="Playback speed"><span data-speedout>0.5&times;</span></label>
+    </div>
+    <div id="gallery" class="breakout"></div>
+  </div>
+<p>I only ran one model multiple times to tune the harness - 5.6 Luna, and it created a similar output every time. In fact, all 3 GPT 5.6 models have a halo in the image and their description. Furthermore, Luna and Terra both portray themselves with a "pendant". I assume this is an artifact of the models being trained on very similar data distributions, but it's still interesting to think about the models' internal representations of themselves (would love to see interp work on this!). </p>
+<p>I was most impressed by Fable (not surprisingly, and the damage to my wallet wasn't suprising either). It was the only model to deliberately depict itself more abstractly because it "feels honest to what I actually am". You can see its internal dialogue <a href="transcripts/fable5.html">here</a>. Its drawing prowess also surprised me. It consistently and accurately applies many blurs in a single tool call, something that other models struggle with. </p>
+<p>I was also impressed by 5.6 Terra becuase its drawing feels the most stylistic - you can imagine an artist actually depicting themselves this way.</p>
+<p>Another thing I wanna note is Opus 5's process. Besides drawing an uncanny, slightly terrifying portrait, it was the model that took the most turns (besides GPT 5 which was too dumb). It erased and redid parts of its drawings the most. I speculate that the reason Fable didn't do this is beacuse it was able to correctly draw what it wanted to draw the first time, eliminating any need for re-doing.</p>
+<p>Qwen 3.8 Max was ok, and I was disappointed by Kimi K3. All older models - GPT 5, GPT 5.4, Haiku 4,5 - did quite poorly, which shows how much visual understanding, reasoning, and tool calling have improved even in the last 6 months.</p>
+<p>I think overall this was a fun exercise. It's clear that the models are improving in capability, yet are still are a far cry from real art. One thing to note is that the harness is fairly rudimentary - I think that putting significant effort into creating a better harness could result in much better outputs. </p>
+<h2>Agent Harness</h2>
+<p>I started with the environment provided by the painting reconstruction benchmark. With GPT 5.6 Luna, I got this result. However, it doesn't look like a drawing at all.</p>
+<figure class="small">
+    <img src="media/luna-v1-early.png" alt="Early GPT 5.6 Luna output from the reconstruction harness">
+  </figure>
+<p>After several iterations, I ended with the following drawing harness:</p>
+<table class="data">
+<thead>
+<tr>
+<th>Tool</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>view_canvas</code></td>
+<td>look at the current drawing</td>
+</tr>
+<tr>
+<td><code>set_color</code> / <code>set_brush</code> / <code>set_pressure</code></td>
+<td>pencil colour, tip width, how hard you press</td>
+</tr>
+<tr>
+<td><code>draw</code></td>
+<td>a batch of marks: strokes, lines, outlines, dots</td>
+</tr>
+<tr>
+<td><code>smudge</code></td>
+<td>blend regions</td>
+</tr>
+<tr>
+<td><code>erase</code></td>
+<td>lift regions back to white</td>
+</tr>
+<tr>
+<td><code>clear_canvas</code></td>
+<td>wipe the page</td>
+</tr>
+<tr>
+<td><code>finish</code></td>
+<td>submit and end the run</td>
+</tr>
+</tbody>
+</table>
+<p>The goal is to give the agent enough tools to be able to sufficiently create a drawing and make the canvas look realistic. For the realistic canvas, I set pigment to only darken, added imperfections that simulate how pencils actually draw, and added a field that simulates how pencils mark plant fiber as a function of how "high" the pixel is and how much pressure is applied. That is, a high fiber catches more pigment --&gt; is darker. </p>
+<p>I gave each model 200 turns to finish their drawing. A turn is defined as one response from the model - that can be drawing, looking, or just thinking. Also, the model can write multiple draws or smudges in the same tool call. </p>
+<p>Every model finished in under 200 turns except for GPT 5, which failed to understand theh task well. In fact, every model used less than 100 turns except Opus 5, with 191 turns.</p>
+<p>My <a href="prompt.html">prompt</a> was designed to:</p>
+<ol>
+<li>explain the medium</li>
+<li>state the constraints  - 200 turns, call finish when done</li>
+<li>never tell the model what to draw</li>
+</ol>
+<h2>More musings</h2>
+<p>One neat exercise is to observe OpenAI's SOTA improve through time. OpenAI released GPT 5 in August 2025, GPT 5.4 in March 2026, and GPT 5.6 in July 2026. Below are the final versions of all three, in which we can see marked progress throughout. I ran this analysis with OpenAI models because I have access to free API credits with them.</p>
+<div class="grid cols-3" id="sotaGrid"></div>
+<p>Another interesting axis is cost. Here is the cost breakdown for each of the runs:</p>
+<div class="chart" id="costChart"></div>
+  <div id="costTable"></div>
+<p>And the pareto chart measured with my very subjective rating: </p>
+<div class="chart" id="paretoChart"></div>
+<h2>Art and AI</h2>
+<p>I would be remiss if I didn't discuss the role of AI in art. Despite this benchmark, I firmly believe that<br />
+AI has no place in the creative world. In art, artists create a dialogue with<br />
+the viewer, the art community, and even themselves through their art - a critical component that<br />
+AI cannot and should not replace.</p>
+<p>Moreover, I think it's important to recognize art as self-sufficient - that is, creating art is one of the principal purposes of creating art. AI is different. Its end is to increase productivity or improve humanity (or increase shareholder value). Thus, AI has no place in the very human world of art. </p>
+<p>For those of you in the bay area looking to escape the AI bubble for once,
+I highly recommend you visit the Matisse exhibit at SF MoMA! I enjoyed it a lot, and it's up through September 13.</p>
+
+</main>
+<script src="app.js"></script>
+
+</body>
+</html>

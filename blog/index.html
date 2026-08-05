@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Writing by Ismael Robles-Razzaq.">
+<link rel="canonical" href="https://ismaelroblesrazzaq.github.io/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Blog — Ismael Robles-Razzaq</title>
+<style>
+  /* Same palette and type as the posts, kept local so this page has no
+     dependency on either the homepage stylesheet or a post's. */
+  :root {
+    --bg: #f5f1e8;
+    --muted: #64635f;
+    --text: #1a1a1a;
+    --border: #e5dfd4;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font); font-size: 16px; line-height: 1.7;
+    color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 72px 24px 120px; }
+  a { color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+      text-decoration-color: #b9b2a4; }
+  a:hover { text-decoration-color: var(--text); }
+  .back { font-size: 0.9rem; margin-bottom: 40px; }
+  h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .sub { color: var(--muted); margin-bottom: 48px; }
+
+  .post { display: block; padding: 22px 0; border-top: 1px solid var(--border);
+          text-decoration: none; }
+  .post:last-of-type { border-bottom: 1px solid var(--border); }
+  .post:hover .post-title { text-decoration-color: var(--text); }
+  .post-title { font-size: 1.1rem; font-weight: 600; display: inline-block;
+                text-decoration: underline; text-decoration-color: #b9b2a4;
+                text-underline-offset: 3px; }
+  .post-date { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+  .post-blurb { color: var(--muted); font-size: 0.95rem; margin-top: 6px; }
+
+  @media (max-width: 640px) { .wrap { padding: 40px 18px 80px; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="back"><a href="../">&larr; Ismael Robles-Razzaq</a></p>
+
+  <h1>Blog</h1>
+  <p class="sub">Occasional writing, mostly about models and neural data.</p>
+
+  <a class="post" href="llm-self-portraits/">
+    <div class="post-date">August 2026</div>
+    <span class="post-title">I gave frontier LLMs a canvas and told them to draw a self-portrait</span>
+    <div class="post-blurb">Ten models, colored pencils, and 200 turns each. What they drew,
+      how they drew it, and what it cost.</div>
+  </a>
+
+</main>
+</body>
+</html>

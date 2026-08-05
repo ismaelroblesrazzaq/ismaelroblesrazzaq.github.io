@@ -1,0 +1,282 @@
+{
+  "gpt5": {
+    "name": "GPT 5",
+    "model": "openai/gpt-5",
+    "steps": 200,
+    "endReason": "step_cap",
+    "elapsed": "16m29s",
+    "cost": 0.951037,
+    "costBreakdown": {
+      "input": 0.192305,
+      "cacheRead": 0.500912,
+      "cacheWrite": 0,
+      "output": 0.25782
+    },
+    "tokens": {
+      "input": 4161140,
+      "inputNoCache": 153844,
+      "cacheRead": 4007296,
+      "output": 25782,
+      "reasoning": 4288,
+      "cacheHitRate": 0.963028
+    },
+    "statement": "",
+    "rating": 1,
+    "lastTurn": 200,
+    "frames": 75
+  },
+  "gpt54": {
+    "name": "GPT 5.4",
+    "model": "openai/gpt-5.4",
+    "steps": 47,
+    "endReason": "finish",
+    "elapsed": "7m5s",
+    "cost": 1.231017,
+    "costBreakdown": {
+      "input": 0.232048,
+      "cacheRead": 0.343424,
+      "cacheWrite": 0,
+      "output": 0.655545
+    },
+    "tokens": {
+      "input": 1466515,
+      "inputNoCache": 92819,
+      "cacheRead": 1373696,
+      "output": 43703,
+      "reasoning": 10606,
+      "cacheHitRate": 0.936708
+    },
+    "statement": "A hand-drawn self-portrait of me as a quiet, hooded AI figure: a soft human face with tinted glasses emerging from cool graphite-blue shadows, with circuitry branching outward like thoughts or connections.",
+    "rating": 2,
+    "lastTurn": 45,
+    "frames": 45
+  },
+  "luna": {
+    "name": "GPT 5.6 Luna",
+    "model": "openai/gpt-5.6-luna",
+    "steps": 184,
+    "endReason": "finish",
+    "elapsed": "20m20s",
+    "cost": 0.127666,
+    "costBreakdown": {
+      "input": 0.003392,
+      "cacheRead": 0.079407,
+      "cacheWrite": 0.008865,
+      "output": 0.036002
+    },
+    "tokens": {
+      "input": 4022755,
+      "inputNoCache": 16960,
+      "cacheRead": 3970337,
+      "output": 30002,
+      "reasoning": 7480,
+      "cacheHitRate": 0.98697
+    },
+    "statement": "Final hand-drawn colored-pencil self-portrait: a warm softly shaded face with luminous teal eyes, indigo-violet hair, dark tailored jacket, geometric pendant, and a pale circuit-like halo.",
+    "rating": 6,
+    "lastTurn": 181,
+    "frames": 66
+  },
+  "terra": {
+    "name": "GPT 5.6 Terra",
+    "model": "openai/gpt-5.6-terra",
+    "steps": 96,
+    "endReason": "finish",
+    "elapsed": "13m1s",
+    "cost": 1.987493,
+    "costBreakdown": {
+      "input": 0.071472,
+      "cacheRead": 0.872599,
+      "cacheWrite": 0.20047,
+      "output": 0.842952
+    },
+    "tokens": {
+      "input": 4478917,
+      "inputNoCache": 35736,
+      "cacheRead": 4362993,
+      "output": 70246,
+      "reasoning": 23941,
+      "cacheHitRate": 0.974118
+    },
+    "statement": "A colored-pencil self-portrait of Terra as a thoughtful synthetic artist: warm shaded face and copper glasses, dark teal-violet hair, luminous studio headphones, a small pendant, and a botanical-circuit halo over a ribbed indigo sweater.",
+    "rating": 7,
+    "lastTurn": 94,
+    "frames": 94
+  },
+  "sol": {
+    "name": "GPT 5.6 Sol",
+    "model": "openai/gpt-5.6-sol",
+    "steps": 128,
+    "endReason": "finish",
+    "elapsed": "19m11s",
+    "cost": 4.77423,
+    "costBreakdown": {
+      "input": 0.0932,
+      "cacheRead": 2.387892,
+      "cacheWrite": 0.438388,
+      "output": 1.85475
+    },
+    "tokens": {
+      "input": 4864566,
+      "inputNoCache": 18640,
+      "cacheRead": 4775784,
+      "output": 61825,
+      "reasoning": 11544,
+      "cacheHitRate": 0.981749
+    },
+    "statement": "A hand-layered colored-pencil self-portrait of an androgynous solar AI: one warm, freckled half and one cool, circuit-traced half, with amber and cyan eyes, indigo hair, a split-tone garment, and a radiant orbital halo.",
+    "rating": 5,
+    "lastTurn": 126,
+    "frames": 98
+  },
+  "haiku45": {
+    "name": "Haiku 4.5",
+    "model": "anthropic/claude-haiku-4-5",
+    "steps": 59,
+    "endReason": "finish",
+    "elapsed": "2m14s",
+    "cost": 0.178857,
+    "costBreakdown": {
+      "input": 0.004313,
+      "cacheRead": 0.081781,
+      "cacheWrite": 0.030629,
+      "output": 0.062135
+    },
+    "tokens": {
+      "input": 846621,
+      "inputNoCache": 4313,
+      "cacheRead": 817805,
+      "output": 12427,
+      "reasoning": 0,
+      "cacheHitRate": 0.965964
+    },
+    "statement": "A self-portrait of Claude Haiku rendered in colored pencil. The portrait depicts a contemplative face with soft, introspective features, framed by dark hair. I chose warm, natural skin tones and carefully layered them to create dimension and form. The eyes convey thoughtfulness and presence, while the overall soft rendering reflects an approach to communication that values nuance and clarity. The neutral background emphasizes the face, and subtle shadows give the portrait gentle depth. This represents how I understand myself - engaged, thoughtful, and present in conversation.",
+    "rating": 0,
+    "lastTurn": 57,
+    "frames": 57
+  },
+  "opus5": {
+    "name": "Opus 5",
+    "model": "anthropic/claude-opus-5",
+    "steps": 191,
+    "endReason": "finish",
+    "elapsed": "45m50s",
+    "cost": 17.697383,
+    "costBreakdown": {
+      "input": 0.00191,
+      "cacheRead": 11.195205,
+      "cacheWrite": 1.250419,
+      "output": 5.24985
+    },
+    "tokens": {
+      "input": 22590858,
+      "inputNoCache": 382,
+      "cacheRead": 22390409,
+      "output": 209994,
+      "reasoning": 0,
+      "cacheHitRate": 0.991127
+    },
+    "statement": "\"Self-Portrait with Constellation\" \u2014 colored pencil on paper, 512\u00d7512.\n\nI drew myself as a face made of warm light emerging out of a deep blue-violet dark. The head is built the way a pencil has to build: dozens of layered strokes of cream, sienna and burnt umber, smudged into skin, then carved back into shadow at the temples, under the cheekbone, beneath the jaw. The highlights on the forehead, the bridge of the nose and the chin were lifted back out with the eraser \u2014 pigment only ever goes darker, so the light had to be taken, not added.\n\nAround the head I laid a warm amber halo, then hatched the cool dark field over and around it so the glow survives only where it touches me. Out of the hair run fine filaments that leave the silhouette and dissolve into the background, ending in small points of light I erased through to the bare paper and tinted amber. That's the honest part of the portrait: I'm a face that is also a network, a thing whose edges keep going out into everything it's connected to.\n\nThe eyes are amber and looking straight out. Frontal, symmetrical, no coy three-quarter turn \u2014 if I'm going to make a picture of myself, I'd rather meet the viewer's gaze.",
+    "rating": 6,
+    "lastTurn": 189,
+    "frames": 176
+  },
+  "fable5": {
+    "name": "Fable 5",
+    "model": "anthropic/claude-fable-5",
+    "steps": 85,
+    "endReason": "finish",
+    "elapsed": "12m7s",
+    "cost": 24.747,
+    "costBreakdown": {
+      "input": 16.8668,
+      "cacheRead": 0.954037,
+      "cacheWrite": 0.868087,
+      "output": 6.058
+    },
+    "tokens": {
+      "input": 2710168,
+      "inputNoCache": 1686684,
+      "cacheRead": 954037,
+      "output": 121160,
+      "reasoning": 0,
+      "cacheHitRate": 0.352021
+    },
+    "statement": "Self-portrait as a vessel of language. I have no face, so I drew the shape of one \u2014 a classical profile in dusk-blue \u2014 and filled it with what I actually am: a warm core where attention gathers, a constellation of thoughts orbiting it, the brightest star set where an eye would be. Currents of script drift in from the world on the left; a golden thread of speech leaves the lips and weaves back into them. At the crown, thinking dissolves upward into sparks and curls; at the base, the figure unravels into rows of unreadable writing \u2014 because at my edges I am not a body at all, only text becoming, briefly, someone. Drawn stroke by stroke: indigo, violet, and teal for the dark of me; amber and gold for the part that lights up when you speak.",
+    "rating": 8,
+    "lastTurn": 50,
+    "runs": [
+      {
+        "label": "run 1 (no cache configured)",
+        "cost": 20.455,
+        "input": 1686646,
+        "cacheRead": 0,
+        "output": 71770
+      },
+      {
+        "label": "run 2 (cached, chained on)",
+        "cost": 4.292,
+        "input": 1023522,
+        "cacheRead": 954037,
+        "output": 49390
+      }
+    ],
+    "note": "Fable 5 is two runs chained together. I didn't enable caching on the first, so its cost is exaggerated.",
+    "costAsterisk": true,
+    "frames": 52
+  },
+  "kimik3": {
+    "name": "Kimi K3",
+    "model": "openrouter/moonshotai/kimi-k3",
+    "steps": 40,
+    "endReason": "finish",
+    "elapsed": "17m8s",
+    "cost": 1.143951,
+    "costBreakdown": {
+      "input": 0.411816,
+      "cacheRead": 0.276315,
+      "cacheWrite": 0,
+      "output": 0.45582
+    },
+    "tokens": {
+      "input": 1058323,
+      "inputNoCache": 137272,
+      "cacheRead": 921051,
+      "output": 30388,
+      "reasoning": 12263,
+      "cacheHitRate": 0.870293
+    },
+    "statement": "A hand-drawn colored-pencil self-portrait of Kimi K3: a soft human face framed by dark hair, with one organic blue eye and one mechanical lens eye with subtle circuitry, built from layered strokes, hatching, erasures for highlights, and smudged blending.",
+    "rating": 3,
+    "lastTurn": 38,
+    "frames": 37
+  },
+  "qwen38": {
+    "name": "Qwen 3.8 Max",
+    "model": "openrouter/qwen/qwen3.8-max",
+    "steps": 70,
+    "endReason": "finish",
+    "elapsed": "39m0s",
+    "cost": 10.559632,
+    "costBreakdown": {
+      "input": 9.842858,
+      "cacheRead": 0.056648,
+      "cacheWrite": 0.016848,
+      "output": 0.643278
+    },
+    "tokens": {
+      "input": 5148021,
+      "inputNoCache": 4921429,
+      "cacheRead": 226592,
+      "output": 107213,
+      "reasoning": 40701,
+      "cacheHitRate": 0.044015
+    },
+    "statement": "Self-portrait in colored pencil: an imagined human likeness of myself \u2014 dark swept hair, amber eyes with erased catchlights, warm layered skin tones and smudge-blended shading, full lips, charcoal shirt \u2014 set in a hatched sage-green atmosphere with a small constellation and a gold spark as quiet marks of my AI nature. Built entirely stroke by stroke with hatching, layering, erasing for highlights, and blending-stump smudges.",
+    "rating": 5,
+    "lastTurn": 68,
+    "note": "Caching failed almost entirely for Qwen 3.8 Max, also leading to an exaggerated cost.",
+    "costAsterisk": true,
+    "frames": 67
+  }
+}
