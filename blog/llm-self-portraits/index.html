@@ -119,11 +119,19 @@ Can you guess which one is which?</p>
 <p>Qwen 3.8 Max was ok, and I was disappointed by Kimi K3. All older models - GPT 5, GPT 5.4, Haiku 4,5 - did quite poorly, which shows how much visual understanding, reasoning, and tool calling have improved even in the last 6 months.</p>
 <p>I think overall this was a fun exercise. It's clear that the models are improving in capability, yet are still are a far cry from real art. One thing to note is that the harness is fairly rudimentary - I think that putting significant effort into creating a better harness could result in much better outputs. </p>
 <h2>Agent Harness</h2>
-<p>I started with the environment provided by the painting reconstruction benchmark. With GPT 5.6 Luna, I got this result. However, it doesn't look like a drawing at all.</p>
-<figure class="small">
-    <img src="media/luna-v1-early.png" alt="Early GPT 5.6 Luna output from the reconstruction harness">
-  </figure>
-<p>After several iterations, I ended with the following drawing harness:</p>
+<p>I started with the environment provided by tryai's painting reconstruction benchmark. 
+However, the outputs don't look like drawings at all. After several iterations, I ended up with a harness I'm happy with. Here's the before and after of the same harness using GPT 5.6 Luna: </p>
+<div class="grid cols-2 compare">
+    <figure>
+      <img src="media/luna-v1-early.png" alt="GPT 5.6 Luna on the original reconstruction harness">
+      <figcaption>before</figcaption>
+    </figure>
+    <figure>
+      <img src="media/luna/final.png" alt="GPT 5.6 Luna on the final drawing harness">
+      <figcaption>after</figcaption>
+    </figure>
+  </div>
+<p>The model has the following tools:</p>
 <table class="data">
 <thead>
 <tr>

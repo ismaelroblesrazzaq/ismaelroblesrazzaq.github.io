@@ -105,6 +105,11 @@ mark.todo a { color: inherit; }
 .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 
+/* Before/after pair: equal columns, captions centred under each. */
+.grid.compare { max-width: 620px; margin: 32px auto; gap: 18px; }
+.grid.compare figure { margin: 0; }
+.grid.compare figcaption { text-align: center; margin-top: 8px; }
+
 /* Guessing grid: names hidden until revealed, set plainly on the page
    background rather than in a labelled card. */
 .reveal-name { font-size: 0.9rem; font-weight: 600; margin-top: 8px; visibility: hidden; }
