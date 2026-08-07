@@ -68,7 +68,7 @@ mark.todo a { color: inherit; }
   border-radius: 3px; padding: 1px 6px; margin-right: 8px; vertical-align: 1px;
 }
 
-.footnote { font-size: 0.78rem; color: var(--muted); margin: 10px 0 0; }
+.footnote-note { font-size: 0.78rem; color: var(--muted); margin: 10px 0 0; }
 
 /* Phrase marked for a link that hasn't been added yet. */
 .pending-link { border-bottom: 1px dashed #a89b80; cursor: help; }
@@ -201,3 +201,17 @@ table.data td.num, table.data th.num { text-align: right; font-variant-numeric: 
   .model-card .media { grid-template-columns: 1fr; }
   .wrap { padding: 40px 18px 80px; }
 }
+
+/* ---------- footnotes ---------- */
+/* Superscript markers in the body, and the list python-markdown appends. */
+sup[id^="fnref"] { font-size: 0.7em; line-height: 0; vertical-align: super; }
+sup[id^="fnref"] a { text-decoration: none; padding: 0 1px; }
+.footnote {
+  margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border);
+  font-size: 0.88rem; color: var(--muted);
+}
+.footnote hr { display: none; }
+.footnote ol { margin: 0 0 0 22px; }
+.footnote li { margin-bottom: 8px; }
+.footnote li p { margin: 0; }
+.footnote a.footnote-backref { text-decoration: none; margin-left: 4px; }

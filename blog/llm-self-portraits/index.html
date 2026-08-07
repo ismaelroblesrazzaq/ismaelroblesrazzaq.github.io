@@ -93,16 +93,16 @@ Can you guess which one is which?</p>
 </tr>
 </tbody>
 </table>
-<p>All models were set to use max effort possible (although I used max instead of ultracode for anthropic models). I called OpenAI and Anthropic models through their respective APIs, Qwen 3.8 Max to Alibaba through OpenRouter, and Kimi K3 to Moonshot through Openrouter as well (I tried K3 with an unreliable provider who I won't name before switching to Moonshot. It was Baseten).</p>
+<p>All models were set to use max effort possible<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. I called OpenAI and Anthropic models through their respective APIs, Qwen 3.8 Max to Alibaba through OpenRouter, and Kimi K3 to Moonshot through Openrouter as well<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 <h2>Background + motivation</h2>
-<p>After reading this <a href="https://www.tryai.dev/blog/ai-drawing-arena-colored-pencils-claude-gpt-grok">blog post</a> from tryai about benchmarking frontier LLMs on recreating the Mona Lisa and Starry Night, I became very curious about LLM's using art tools. It seems obvious that giving an LLM the ability to wield art tools like a human uses them is a more apt benchmark of creative ability than having a model blindly generate an SVG of a pelican riding a bike (or the lord of the rings for that matter). Also, this is more likely an OOD task. </p>
+<p>After reading this <a href="https://www.tryai.dev/blog/ai-drawing-arena-colored-pencils-claude-gpt-grok">blog post</a> from tryai about benchmarking frontier LLMs on recreating the Mona Lisa and Starry Night, I became very curious about LLM's using art tools. It seems obvious that giving an LLM the ability to wield art tools like a human is a more apt benchmark of creative ability than having a model blindly generate an SVG of a pelican riding a bike. Furthermore, this is more likely an OOD task. </p>
 <p>The purpose of this benchmark is twofold:</p>
 <ol>
 <li>to extend the frontier LLM drawing benchmark to a fully open-ended creative task</li>
-<li>to genuinely see how models choose to depict themselves (my own use of 'genuinely', not claude)</li>
+<li>to genuinely see how models choose to depict themselves<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
 </ol>
-<p>To that end, I don't have a concrete metric for this benchmark - it's a purely subjective measure of how much I like the aesthetic of the drawing. I'll rate out of 10, where my scale the "artness" or "portraitness" of the drawings - drawings that seem like they were made by an artist will rank higher. </p>
-<p>Here are the drawing processes for each model, displayed as a video playing through each 512x512 canvas the model wrote to, and linked below each are the full transcripts for each run. I also include their descriptions of their drawing, my rating out of 10, and the total cost to run that iteration.</p>
+<p>To that end, my benchmark is a purely subjective measure of the "artness" and "portraitness" of the drawings - the more it looks like a drawing by a real artist, the higher it'll rank. </p>
+<p>Here are the drawing processes for each model, displayed as a video playing through each 512x512 canvas. Below are the link to the full transcript of each drawing, their own descriptions of the drawing, my rating out of 10, and the total cost.</p>
 <div>
     <div class="player" id="player">
       <button data-play type="button">Pause</button>
@@ -113,10 +113,9 @@ Can you guess which one is which?</p>
     </div>
     <div id="gallery" class="breakout"></div>
   </div>
-<p>I only ran one model multiple times to tune the harness - 5.6 Luna, and it created a similar output every time. In fact, all 3 GPT 5.6 models have a halo in the image and their description. Furthermore, Luna and Terra both portray themselves with a "pendant". I assume this is an artifact of the models being trained on very similar data distributions, but it's still interesting to think about the models' internal representations of themselves (would love to see interp work on this!). </p>
-<p>I was most impressed by Fable (not surprisingly, and the damage to my wallet wasn't suprising either). It was the only model to deliberately depict itself more abstractly because it "feels honest to what I actually am". You can see its internal dialogue <a href="transcripts/fable5.html">here</a>. Its drawing prowess also surprised me. It consistently and accurately applies many blurs in a single tool call, something that other models struggle with. </p>
+<p>I was most impressed by Fable. It was the only model to deliberately depict itself more abstractly because it "feels honest to what I actually am". You can see its internal dialogue <a href="transcripts/fable5.html">here</a>. Its drawing prowess also surprised me. It consistently and accurately applies many blurs in a single tool call, something that other models struggle with. </p>
 <p>I was also impressed by 5.6 Terra becuase its drawing feels the most stylistic - you can imagine an artist actually depicting themselves this way.</p>
-<p>Another thing I wanna note is Opus 5's process. Besides drawing an uncanny, slightly terrifying portrait, it was the model that took the most turns (besides GPT 5, which was too dumb). It erased and redid parts of its drawings the most. I speculate that the reason Fable didn't do this is beacuse it was able to correctly draw what it wanted to draw the first time, eliminating any need for re-doing.</p>
+<p>Another thing I wanna note is Opus 5's process. Besides drawing an uncanny, slightly terrifying portrait, it was the model that took the most turns<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. It erased and redid parts of its drawings the most. I speculate that the reason Fable didn't do this is beacuse it was able to correctly draw what it wanted to draw the first time, eliminating any need for re-doing.</p>
 <p>Qwen 3.8 Max was ok, and I was disappointed by Kimi K3. All older models - GPT 5, GPT 5.4, Haiku 4,5 - did quite poorly, which shows how much visual understanding, reasoning, and tool calling have improved even in the last 6 months.</p>
 <p>I think overall this was a fun exercise. It's clear that the models are improving in capability, yet are still are a far cry from real art. One thing to note is that the harness is fairly rudimentary - I think that putting significant effort into creating a better harness could result in much better outputs. </p>
 <h2>Agent Harness</h2>
@@ -188,6 +187,23 @@ AI cannot and should not replace.</p>
 <p>Moreover, I think it's important to recognize art as self-sufficient - that is, creating art is one of the principal purposes of creating art. AI is different. Its end is to increase productivity or improve humanity (or increase shareholder value). Thus, AI has no place in the very human world of art. </p>
 <p>For those of you in the bay area looking to escape the AI bubble for once,
 I highly recommend you visit the Matisse exhibit at SF MoMA! I enjoyed it a lot, and it's up through September 13.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>although I used max instead of ultracode for anthropic models&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>I tried K3 with an unreliable provider who I won't name before switching to Moonshot. It was Baseten.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>my own use of 'genuinely', not claude&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>besides GPT 5, which was too dumb&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 </main>
 <script src="app.js"></script>

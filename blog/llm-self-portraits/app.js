@@ -22,7 +22,7 @@ let DATA = {};
    because their cost is inflated relative to everything else. */
 const labelFor = (d) => d.name + (d.costAsterisk ? "*" : "");
 const asteriskFootnote = () =>
-  `<p class="footnote">* caching was not enabled for all or part of this run, so its cost is inflated.</p>`;
+  `<p class="footnote-note">* caching was not enabled for all or part of this run, so its cost is inflated.</p>`;
 
 /* ------------------------------------------------------------------ *
  * Synced player
