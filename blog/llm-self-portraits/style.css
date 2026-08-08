@@ -115,11 +115,15 @@ mark.todo a { color: inherit; }
 .reveal-name { font-size: 0.9rem; font-weight: 600; margin-top: 8px; visibility: hidden; }
 .revealed .reveal-name { visibility: visible; }
 .reveal-btn {
-  font: inherit; font-size: 0.85rem; font-weight: 500; margin-top: 4px;
-  background: none; color: var(--muted); border: 0; border-bottom: 1px solid var(--border);
-  padding: 2px 0; cursor: pointer;
+  font: inherit; font-size: 0.85rem; font-weight: 500; margin-top: 14px;
+  background: var(--card); color: var(--text);
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: 8px 20px; cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  transition: background .12s, border-color .12s, box-shadow .12s;
 }
-.reveal-btn:hover { color: var(--text); border-bottom-color: var(--text); }
+.reveal-btn:hover { background: var(--surface); border-color: #c9bfa8; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.reveal-btn:active { box-shadow: none; }
 
 /* The ten-model wall breaks out of the prose column so five fit across. */
 .breakout { width: min(1320px, calc(100vw - 48px)); margin-left: 50%; transform: translateX(-50%); }
