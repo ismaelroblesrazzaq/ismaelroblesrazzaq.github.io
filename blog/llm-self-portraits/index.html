@@ -114,9 +114,9 @@ Can you guess which one is which?</p>
     <div id="gallery" class="breakout"></div>
   </div>
 <p>I was most impressed by Fable. It was the only model to deliberately depict itself more abstractly because it "feels honest to what I actually am". You can see its internal dialogue <a href="transcripts/fable5.html">here</a>. Its drawing prowess also surprised me. It consistently and accurately applies many blurs in a single tool call, something that other models struggle with. </p>
-<p>I was also impressed by 5.6 Terra becuase its drawing feels the most stylistic - you can imagine an artist actually depicting themselves this way.</p>
-<p>Another thing I wanna note is Opus 5's process. Besides drawing an uncanny, slightly terrifying portrait, it was the model that took the most turns<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. It erased and redid parts of its drawings the most. I speculate that the reason Fable didn't do this is beacuse it was able to correctly draw what it wanted to draw the first time, eliminating any need for re-doing.</p>
-<p>Qwen 3.8 Max was ok, and I was disappointed by Kimi K3. All older models - GPT 5, GPT 5.4, Haiku 4,5 - did quite poorly, which shows how much visual understanding, reasoning, and tool calling have improved even in the last 6 months.</p>
+<p>I was also impressed by 5.6 Terra because its drawing feels the most stylistic - you can imagine an artist actually depicting themselves this way.</p>
+<p>Another thing I wanna note is Opus 5's process. Besides drawing an uncanny, slightly terrifying portrait, it was the model that took the most turns<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. It erased and redid parts of its drawings the most. I speculate that the reason Fable didn't do this is because it was able to correctly draw what it wanted to draw the first time, eliminating any need for re-doing.</p>
+<p>Qwen 3.8 Max was ok, and I was disappointed by Kimi K3. All older models - GPT 5, GPT 5.4, Haiku 4.5 - did quite poorly, which shows how much visual understanding, reasoning, and tool calling have improved even in the last 6 months.</p>
 <p>I think overall this was a fun exercise. It's clear that the models are improving in capability, yet are still are a far cry from real art. One thing to note is that the harness is fairly rudimentary - I think that putting significant effort into creating a better harness could result in much better outputs. </p>
 <h2>Agent Harness</h2>
 <p>I started with the environment provided by tryai's painting reconstruction benchmark. 
@@ -172,7 +172,7 @@ However, the outputs don't look like drawings at all. After several iterations, 
 </table>
 <p>The goal is to give the agent enough tools to be able to sufficiently create a drawing and make the canvas look realistic. For the realistic canvas, I set pigment to only darken, added imperfections that simulate how pencils actually draw, and added a field that simulates how pencils mark plant fiber as a function of how "high" the pixel is and how much pressure is applied. That is, a high fiber catches more pigment --&gt; is darker. </p>
 <p>I gave each model 200 turns to finish their drawing. A turn is defined as one response from the model - that can be drawing, looking, or just thinking. Also, the model can write multiple draws or smudges in the same tool call. </p>
-<p>Every model finished in under 200 turns except for GPT 5, which failed to understand theh task well. In fact, every model used less than 100 turns except Opus 5, with 191 turns.</p>
+<p>Every model finished in under 200 turns except for GPT 5, which failed to understand the task well. In fact, every model used less than 100 turns except Opus 5, with 191 turns.</p>
 <p>My <a href="prompt.html">prompt</a> was designed to:</p>
 <ol>
 <li>explain the medium</li>
